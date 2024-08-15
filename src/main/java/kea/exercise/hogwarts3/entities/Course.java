@@ -1,4 +1,4 @@
-package kea.exercise.hogwarts3.Entities;
+package kea.exercise.hogwarts3.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;

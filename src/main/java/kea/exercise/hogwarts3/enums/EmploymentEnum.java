@@ -1,4 +1,4 @@
-package kea.exercise.hogwarts3.Enums;
+package kea.exercise.hogwarts3.enums;
 
 public enum EmploymentEnum {
     Tenured,

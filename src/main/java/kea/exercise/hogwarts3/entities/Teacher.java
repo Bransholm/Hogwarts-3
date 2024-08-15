@@ -1,7 +1,7 @@
-package kea.exercise.hogwarts3.Entities;
+package kea.exercise.hogwarts3.entities;
 
 import jakarta.persistence.*;
-import kea.exercise.hogwarts3.Enums.EmploymentEnum;
+import kea.exercise.hogwarts3.enums.EmploymentEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
