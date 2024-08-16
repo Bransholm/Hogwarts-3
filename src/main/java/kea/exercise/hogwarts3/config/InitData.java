@@ -77,8 +77,7 @@ public class InitData implements CommandLineRunner {
     }
 
     private void createTeachers() {
-        Set<Teacher> existingTeachers = new HashSet<>();
-        existingTeachers.addAll(teacherRepository.findAll());
+        Set<Teacher> existingTeachers = new HashSet<>(teacherRepository.findAll());
 
         severus = new Teacher("Severus", "Prince", "Snape", LocalDate.of(1981, 11, 1), slytherin, true, Temporary, LocalDate.of(1996, 9, 1), LocalDate.of(1997, 6, 30));
         minerva = new Teacher("Minerva", "", "McGonagall", LocalDate.of(1935, 10, 4), gryffindor, true, Tenured, LocalDate.of(1956, 12, 1), null);
@@ -89,8 +88,7 @@ public class InitData implements CommandLineRunner {
 
     private void createStudents() {
 
-        Set<Student> existingStudents = new HashSet<>();
-        existingStudents.addAll(studentRepository.findAll());
+        Set<Student> existingStudents = new HashSet<>(studentRepository.findAll());
 
         harry = new Student("Harry", "James", "Potter", LocalDate.of(1980, 7, 31), gryffindor, false, 1991, 1997, false);
         hermione = new Student("Hermione", "Jean", "Granger", LocalDate.of(1979, 9, 19), gryffindor, true, 1991, 1997, false);
@@ -110,8 +108,7 @@ public class InitData implements CommandLineRunner {
     }
 
     private void createCourses() {
-        Set<Course> existingCourses = new HashSet<>();
-        existingCourses.addAll(courseRepository.findAll());
+        Set<Course> existingCourses = new HashSet<>(courseRepository.findAll());
 
         Course potions = new Course("Potions", 5, true, severus, List.of(harry, hermione, ron, neville, ginny, fred, george, percy, draco, cedric, luna));
         Course transfiguration = new Course("Transfiguration", 5, true, minerva, List.of(harry, hermione, ron, neville, ginny, fred, george));
