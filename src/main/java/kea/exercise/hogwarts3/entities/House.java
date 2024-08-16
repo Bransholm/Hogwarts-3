@@ -19,11 +19,13 @@ public class House {
     private int id;
     private String name;
     private String founder;
-    private String colors;
+    private String color1;
+    private String color2;
 
-    public House(int id, String name, String founder, String colors) {
+    public House(String name, String founder, String color1, String color2) {
         this.name = name;
         this.founder = founder;
-        this.colors = colors;
+        this.color1 = color1;
+        this.color2 = color2;
     }
 }

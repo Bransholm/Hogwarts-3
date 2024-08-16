@@ -5,8 +5,7 @@ import kea.exercise.hogwarts3.enums.EmploymentEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -20,15 +19,15 @@ public class Teacher {
     private String firstName;
     private String middleName;
     private String lastName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @ManyToOne
     private House house;
     private boolean headOfHouse;
     private EmploymentEnum employment;
-    private Date employmentStart;
-    private Date employmentEnd;
+    private LocalDate employmentStart;
+    private LocalDate employmentEnd;
 
-    public Teacher(String firstName, String middleName, String lastName, Date dateOfBirth, House house, boolean headOfHouse, EmploymentEnum employment, Date employmentStart, Date employmentEnd) {
+    public Teacher(String firstName, String middleName, String lastName, LocalDate dateOfBirth, House house, boolean headOfHouse, EmploymentEnum employment, LocalDate employmentStart, LocalDate employmentEnd) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
