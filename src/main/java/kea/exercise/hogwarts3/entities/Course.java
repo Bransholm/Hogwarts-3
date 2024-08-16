@@ -24,7 +24,7 @@ public class Course {
     @ManyToMany
     private List<Student> students;
 
-    public Course(int id, String subject, int schoolYear, boolean current, Teacher teacher, List<Student> students) {
+    public Course(String subject, int schoolYear, boolean current, Teacher teacher, List<Student> students) {
         this.subject = subject;
         this.schoolYear = schoolYear;
         this.current = current;

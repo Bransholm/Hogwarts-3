@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -19,7 +18,7 @@ public class Student {
     private String firstName;
     private String middleName;
     private String lastName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @ManyToOne
     private House house;
     private boolean prefect;
@@ -27,7 +26,7 @@ public class Student {
     private int graduationYear;
     private boolean graduated;
 
-    public Student(String firstName, String middleName, String lastName, Date dateOfBirth, House house, boolean prefect, int enrollmentYear, int graduationYear, boolean graduated) {
+    public Student(String firstName, String middleName, String lastName, LocalDate dateOfBirth, House house, boolean prefect, int enrollmentYear, int graduationYear, boolean graduated) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
