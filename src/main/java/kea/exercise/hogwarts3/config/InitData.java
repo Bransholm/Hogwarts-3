@@ -111,7 +111,7 @@ public class InitData implements CommandLineRunner {
         Set<Course> existingCourses = new HashSet<>(courseRepository.findAll());
 
         Course potions = new Course("Potions", 5, true, severus, List.of(harry, hermione, ron, neville, ginny, fred, george, percy, draco, cedric, luna));
-        Course transfiguration = new Course("Transfiguration", 5, true, minerva, List.of(harry, hermione, ron, neville, ginny, fred, george));
+        Course transfiguration = new Course("Transfiguration", 5, true, minerva, List.of(harry, hermione, ron, neville, ginny, fred, george, cho));
 
         existingCourses.addAll(List.of(potions, transfiguration));
         courseRepository.saveAll(existingCourses);
