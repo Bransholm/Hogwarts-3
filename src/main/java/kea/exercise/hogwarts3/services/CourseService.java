@@ -1,6 +1,7 @@
 package kea.exercise.hogwarts3.services;
 
 import kea.exercise.hogwarts3.entities.Course;
+import kea.exercise.hogwarts3.entities.Teacher;
 import kea.exercise.hogwarts3.repositories.CourseRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,17 @@ public class CourseService {
     // Get one course
     public ResponseEntity<Course> getOneCourse(int id) {
         return ResponseEntity.of(courseRepository.findById(id));
+    }
+
+    // Get Course/:id/teacher to get the teacher object of a course
+    public ResponseEntity<Teacher> getCourseTeacher(int id) {
+        Optional<Course> course = courseRepository.findById(id);
+        if (course.isPresent()) {
+            Teacher teacher = course.get().getTeacher();
+            return ResponseEntity.of(Optional.of(teacher));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found, can't get teacher");
+        }
     }
 
     // Create a new course that returns the created course object

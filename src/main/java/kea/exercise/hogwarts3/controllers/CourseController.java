@@ -1,6 +1,7 @@
 package kea.exercise.hogwarts3.controllers;
 
 import kea.exercise.hogwarts3.entities.Course;
+import kea.exercise.hogwarts3.entities.Teacher;
 import kea.exercise.hogwarts3.services.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,12 @@ public class CourseController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<Course> getOneCourse(@PathVariable int id) {
         return courseService.getOneCourse(id);
+    }
+
+    // Get Course/:id/teacher to get the teacher object of a course
+    @GetMapping(path = "/{id}/teacher")
+    public ResponseEntity<Teacher> getCourseTeacher(@PathVariable int id) {
+        return courseService.getCourseTeacher(id);
     }
 
     // Create a new course
