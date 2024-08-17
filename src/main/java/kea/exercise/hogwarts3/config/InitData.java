@@ -56,7 +56,7 @@ public class InitData implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         createHouses();
         createTeachers();
         createStudents();
@@ -65,7 +65,7 @@ public class InitData implements CommandLineRunner {
     }
 
     private void createHouses() {
-        gryffindor = new House("Gryffindor", "Godric Gryffindor", "Red", "Gold");
+        gryffindor = new House("Gryffindor", "Goodrich Gryffindor", "Red", "Gold");
         slytherin = new House("Slytherin", "Salazar Slytherin", "Green", "Silver");
         hufflepuff = new House("Hufflepuff", "Helga Hufflepuff", "Yellow", "Black");
         ravenclaw = new House("Ravenclaw", "Rowena Ravenclaw", "Blue", "Bronze");
@@ -79,7 +79,7 @@ public class InitData implements CommandLineRunner {
     private void createTeachers() {
         Set<Teacher> existingTeachers = new HashSet<>(teacherRepository.findAll());
 
-        severus = new Teacher("Severus", "Prince", "Snape", LocalDate.of(1981, 11, 1), slytherin, true, Temporary, LocalDate.of(1996, 9, 1), LocalDate.of(1997, 6, 30));
+        severus = new Teacher("Severus", "Prince", "Snap", LocalDate.of(1981, 11, 1), slytherin, true, Temporary, LocalDate.of(1996, 9, 1), LocalDate.of(1997, 6, 30));
         minerva = new Teacher("Minerva", "", "McGonagall", LocalDate.of(1935, 10, 4), gryffindor, true, Tenured, LocalDate.of(1956, 12, 1), null);
 
         existingTeachers.addAll(List.of(severus, minerva));
@@ -92,7 +92,7 @@ public class InitData implements CommandLineRunner {
 
         harry = new Student("Harry", "James", "Potter", LocalDate.of(1980, 7, 31), gryffindor, false, 1991, 1997, false);
         hermione = new Student("Hermione", "Jean", "Granger", LocalDate.of(1979, 9, 19), gryffindor, true, 1991, 1997, false);
-        ron = new Student("Ron", "Bilius", "Weasley", LocalDate.of(1980, 3, 1), gryffindor, false, 1991, 1997, false);
+        ron = new Student("Ron", "Bilious", "Weasley", LocalDate.of(1980, 3, 1), gryffindor, false, 1991, 1997, false);
         neville = new Student("Neville", "Frank", "Longbottom", LocalDate.of(1980, 7, 30), gryffindor, false, 1991, 1997, false);
         ginny = new Student("Ginny", "Molly", "Weasley", LocalDate.of(1981, 8, 11), gryffindor, false, 1992, 1998, false);
         fred = new Student("Fred", "Gideon", "Weasley", LocalDate.of(1978, 4, 1), gryffindor, false, 1989, 1995, true);
