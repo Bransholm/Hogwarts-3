@@ -83,4 +83,14 @@ public class CourseService {
         courseRepository.deleteById(id);
         return ResponseEntity.of(courseToDelete);
     }
+
+    // Update a course's teacher by teacher id
+    public Course updateCourseTeacher(int courseId, int teacherId) {
+        Course courseToEdit = courseRepository.findById(courseId).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found, can't update teacher"));
+        Teacher teacher = new Teacher();
+        teacher.setId(teacherId);
+        courseToEdit.setTeacher(teacher);
+        return courseRepository.save(courseToEdit);
+    }
 }

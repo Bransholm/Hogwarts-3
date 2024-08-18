@@ -56,6 +56,14 @@ public class CourseController {
         return courseService.updateCourse(request, id);
     }
 
+    // Update a course's teacher by teacher id
+    @PutMapping(path = "/{courseId}/teacher/{teacherId}")
+    public Course updateCourseTeacher(@PathVariable int courseId, @PathVariable int teacherId) {
+        return courseService.updateCourseTeacher(courseId, teacherId);
+    }
+
+
+
     // Delete a course
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Course> deleteOneCourse(@PathVariable int id) {
