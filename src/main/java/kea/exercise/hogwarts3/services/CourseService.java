@@ -108,4 +108,16 @@ public class CourseService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Student already enrolled in the course");
         }
     }
+
+    // Remove a student from a course
+    public Course removeStudentFromCourse(int courseId, int studentId) {
+        Course courseToEdit = courseRepository.findById(courseId).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found, can't remove student"));
+        boolean studentExists = courseToEdit.getStudents().removeIf(s -> s.getId() == studentId);
+        if (studentExists) {
+            return courseRepository.save(courseToEdit);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not enrolled in the course");
+        }
+    }
 }

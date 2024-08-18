@@ -73,4 +73,10 @@ public class CourseController {
     public ResponseEntity<Course> deleteOneCourse(@PathVariable int id) {
         return courseService.deleteOneCourse(id);
     }
+
+    // Remove a student from a course
+    @DeleteMapping(path = "/{courseId}/student/{studentId}")
+    public Course removeStudentFromCourse(@PathVariable int courseId, @PathVariable int studentId) {
+        return courseService.removeStudentFromCourse(courseId, studentId);
+    }
 }
