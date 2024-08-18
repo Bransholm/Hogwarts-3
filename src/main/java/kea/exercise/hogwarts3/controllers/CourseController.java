@@ -62,7 +62,11 @@ public class CourseController {
         return courseService.updateCourseTeacher(courseId, teacherId);
     }
 
-
+    // Add an existing student to a course
+    @PutMapping(path = "/{courseId}/student/{studentId}")
+    public Course addStudentToCourse(@PathVariable int courseId, @PathVariable int studentId) {
+        return courseService.addStudentToCourse(courseId, studentId);
+    }
 
     // Delete a course
     @DeleteMapping(path = "/{id}")

@@ -93,4 +93,19 @@ public class CourseService {
         courseToEdit.setTeacher(teacher);
         return courseRepository.save(courseToEdit);
     }
+
+    public Course addStudentToCourse(int courseId, int studentId) {
+        Course courseToEdit = courseRepository.findById(courseId).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found, can't add student"));
+        boolean studentExists = courseToEdit.getStudents().stream()
+                .anyMatch(s -> s.getId() == studentId);
+        if (!studentExists) {
+            Student student = new Student();
+            student.setId(studentId);
+            courseToEdit.getStudents().add(student);
+            return courseRepository.save(courseToEdit);
+        } else {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Student already enrolled in the course");
+        }
+    }
 }
