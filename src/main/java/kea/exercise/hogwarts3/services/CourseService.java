@@ -120,4 +120,12 @@ public class CourseService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not enrolled in the course");
         }
     }
+
+    // Remove a teacher from a course
+    public Course removeTeacherFromCourse(int courseId) {
+        Course courseToEdit = courseRepository.findById(courseId).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found, can't remove teacher"));
+        courseToEdit.setTeacher(null);
+        return courseRepository.save(courseToEdit);
+    }
 }

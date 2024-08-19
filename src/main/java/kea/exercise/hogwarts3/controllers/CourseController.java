@@ -79,4 +79,10 @@ public class CourseController {
     public Course removeStudentFromCourse(@PathVariable int courseId, @PathVariable int studentId) {
         return courseService.removeStudentFromCourse(courseId, studentId);
     }
+
+    // Remove a teacher from a course
+    @DeleteMapping(path = "/{courseId}/teacher")
+    public Course removeTeacherFromCourse(@PathVariable int courseId) {
+        return courseService.removeTeacherFromCourse(courseId);
+    }
 }
